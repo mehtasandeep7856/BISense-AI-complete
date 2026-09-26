@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: bisense-api}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: bisense-api}}
+  template:
+    metadata: {labels: {app: bisense-api}}
+    spec:
+      containers:
+      - name: api
+        image: bisense-ai:latest
+        ports: [{containerPort: 8000}]
